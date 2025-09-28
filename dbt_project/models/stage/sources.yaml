@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: source                       # Logical name for this source
+    database: your-project-id   # BigQuery project ID
+    schema: source                     # BigQuery source dataset name
+    tables:
+      - name: RW_SUPPLIER
+      - name: RW_PART
+      - name: RW_BUYER
+      - name: RW_COUNTRY
+      - name: RW_MARKET
+      - name: RW_ORDER
+      - name: RW_SALE

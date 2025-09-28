@@ -1,0 +1,53 @@
+# Project YAML
+name: 'dbt_project'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'dbt_project'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+models:
+  dbt_project:
+    # Config indicated by + and applies to all files under models/example/
+    stage:
+      +schema: stage
+      +tags:
+        - 'stage'
+
+    raw_vault:
+      +schema: raw_vault
+      +tags:
+        - 'raw-vault'
+
+      hubs:
+        +tags:
+          - 'hub'
+      links:
+        +tags:
+          - 'link'
+      sats:
+        +tags:
+          - 'satellite'
+
+    business_vault:
+      +schema: business_vault
+      +tags:
+        - 'business-vault'
+
+    gold:
+      +schema: gold 
+      +tags:
+        - 'gold-layer'
