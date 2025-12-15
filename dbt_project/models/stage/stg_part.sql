@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(materialized='ephemeral') }}
 {%- set yaml_metadata -%}
 source_model: 
     source: 'RW_PART'
